@@ -229,8 +229,16 @@ def pick_best_move(board: np, player: int)->int:
 pygame.init()
 SQUARESIZE=100
 RADIUS=int(SQUARESIZE/2 - 5)
-width = board_cols * SQUARESIZE
-height = (board_rows+1) * SQUARESIZE
+#width = board_cols * SQUARESIZE
+#height = (board_rows+1) * SQUARESIZE
+#width/height = board_cols/(board_rows+1)
+screen_info = pygame.display.Info()
+screen_width = screen_info.current_w
+screen_height = screen_info.current_h
+height = screen_height
+width = board_cols/(board_rows+1)*screen_height
+print(screen_height)
+
 
 size = (width, height)
 screen = pygame.display.set_mode(size)
